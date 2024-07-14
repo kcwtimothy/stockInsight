@@ -15,8 +15,10 @@ Stock Insight is a comprehensive tool for analyzing stock data, calculating tech
 
 1. Clone the repository:
    ```
+   ```
    git clone https://github.com/yourusername/stock-insight.git
    cd stock-insight
+   ```
    ```
 
 2. Create virtual environment:
@@ -55,7 +57,7 @@ Stock Insight is a comprehensive tool for analyzing stock data, calculating tech
    -Scrap the economic events data.
    The downloaded data will be automatically stored under 'data' folder.
 
-6. Known bugs
+9. Known bugs
    -Though there's logic to deal with the pop up ads, sometimes eco_calendar.py could still be blocked by the pop-up. Re-run it another time will solve this problem.
 
 
