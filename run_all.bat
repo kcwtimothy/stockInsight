@@ -29,7 +29,7 @@ if not exist "%ec_date_file%" (
 echo Using ticker file: %ticker_file%
 echo Using Date range provided by economic calendar date file: %ec_date_file%
 
-REM Read tickers from file and run the stock analysis script
+REM Run the stock analysis script
 python run_stockanalysis.py
 
 REM Read dates from eco_calendar_date.txt and run the economic calendar script

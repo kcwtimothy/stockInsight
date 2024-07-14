@@ -15,7 +15,7 @@ class StockAnalyzer:
         self.ticker = ticker
         self.start_date = start_date
         self.end_date = end_date if end_date else date.today().isoformat()
-        self.expiry = expiry if expiry else self._get_third_friday_of_current_month()
+        self.expiry = expiry
         self.stock_data = None
         self.option_chain = None
         self.indicators = {}
@@ -24,15 +24,33 @@ class StockAnalyzer:
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
 
-    def _get_third_friday_of_current_month(self):
-        today = date.today()
-        month = today.month
-        year = today.year
+    def _get_third_friday(self, year=None, month=None):
+        if year is None or month is None:
+            # If no specific date is provided, use the current month
+            today = date.today()
+            year = today.year
+            month = today.month
+        else:
+            # Ensure year and month are integers
+            year = int(year)
+            month = int(month)
+
+        # Create a calendar object
         c = calendar.Calendar(firstweekday=calendar.SUNDAY)
 
-        monthcal = c.monthdatescalendar(year, month)
-        third_friday = [day for week in monthcal for day in week if day.weekday() == calendar.FRIDAY and day.month == month][2]
-        return third_friday.isoformat()
+        # Get all the days in the month
+        month_days = c.itermonthdates(year, month)
+
+        # Find all Fridays in the month
+        fridays = [day for day in month_days if day.weekday() == calendar.FRIDAY and day.month == month]
+
+        # Get the third Friday
+        third_friday = fridays[2] if len(fridays) >= 3 else None
+
+        if third_friday:
+            return third_friday.isoformat()
+        else:
+            return None
 
     # Calculate Probability of Profit (POP)
     def black_scholes(self, S, K, T, sigma, optionType, r=0.02):

@@ -14,16 +14,28 @@ Stock Insight is a comprehensive tool for analyzing stock data, calculating tech
 ## Installation
 
 1. Clone the repository:
+   ```
    git clone https://github.com/yourusername/stock-insight.git
    cd stock-insight
+   ```
 
 2. Create virtual environment:
+   ```
    python -m venv 'yourvenvname'
-   source venv/bin/activate  
-   On Windows: venv\Scripts\activate
+   ```
+   Linux:
+   ```
+    source venv/bin/activate
+   ```
+   Windows:
+   ```  
+    venv\Scripts\activate
+   ```
 
 3. Install dependencies
-   pip install -r requirements.txt
+   ```
+    pip install -r requirements.txt
+   ```
 
 4. Preparation
    -You can edit the default text file 'tickers.txt' to add/remove tickers symbol for stock and option chain data.
@@ -32,9 +44,13 @@ Stock Insight is a comprehensive tool for analyzing stock data, calculating tech
    -Stockanalyzer on default will always capture the most up to date stock data and 3rd friday of the current month.
 
 5. How to Use?
-   After editing the 'tickers.txt' & 'eco_calendar_date.txt' for your own need, simply click & run 'run_all.bat' file. It's going to achieve a few things:
+   After editing the 'tickers.txt' & 'eco_calendar_date.txt' for your own need, simply click & run 'run_all.bat' file.
+   Then it will ask you whether to download current's month option information (Y/N)?
+   If 'Y', it will return the date of 3rd friday of current month.
+   If 'N', it will ask you to input  month & year for your desired option chain. 
+   It's going to achieve a few things:
    -Download stock data up to the current date
-   -Download option chain data on the third friday of the current month. ITM probability is calculated based on black scholes.
+   -Download option chain data on the third friday of the month(Opex date). ITM probability is calculated based on black scholes.
    -Automatically create stock data plot with technical indicators and labels.
    -Scrap the economic events data.
    The downloaded data will be automatically stored under 'data' folder.
