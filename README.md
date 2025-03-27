@@ -15,7 +15,7 @@ Stock Insight is a comprehensive tool for analyzing stock data, calculating tech
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/stock-insight.git
+   git clone https://github.com/kcwtimothy/stock-insight.git
    cd stock-insight
    ```
 
