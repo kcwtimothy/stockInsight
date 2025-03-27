@@ -11,7 +11,7 @@ Stock Insight is a comprehensive tool for analyzing stock data, calculating tech
 - Save stock and option data to CSV files for further analysis.
 - Download Important economic events and data in CSV.
 
-## Installation
+## Installation (REQUIRES Python Verson >=3.11)
 
 1. Clone the repository:
    ```
